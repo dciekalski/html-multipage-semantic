@@ -1,0 +1,263 @@
+/* NUMA Code Coffee – shared stylesheet for all pages (Apple-inspired, clean and minimal) */
+
+/* ---------- Variables ---------- */
+:root {
+    --color-text: #1d1d1f;
+    --color-text-secondary: #6e6e73;
+    --color-bg: #ffffff;
+    --color-surface: #f5f5f7;
+    --color-border: #d2d2d7;
+    --color-accent: #0071e3;
+    --color-accent-hover: #0077ed;
+    --font-system: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --content-width: 980px;
+    --radius: 18px;
+}
+
+/* ---------- Base ---------- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-system);
+    font-size: 17px;
+    line-height: 1.5;
+    color: var(--color-text);
+    background: var(--color-bg);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    color: var(--color-accent);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* ---------- Header (shared) ---------- */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.75rem max(1.5rem, calc((100% - var(--content-width)) / 2));
+    background: rgba(255, 255, 255, 0.8);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+header > a {
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--color-text);
+}
+
+header > a:hover {
+    text-decoration: none;
+}
+
+nav ul {
+    display: flex;
+    gap: 1.75rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+nav a {
+    font-size: 14px;
+    color: var(--color-text-secondary);
+    transition: color 0.2s ease;
+}
+
+nav a:hover {
+    color: var(--color-text);
+    text-decoration: none;
+}
+
+nav a[aria-current="page"] {
+    color: var(--color-text);
+    font-weight: 500;
+}
+
+/* ---------- Main ---------- */
+main {
+    flex: 1;
+    width: 100%;
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: 4rem 1.5rem 5rem;
+}
+
+h1 {
+    margin: 0 0 1.5rem;
+    font-size: clamp(2.5rem, 6vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.015em;
+    text-align: center;
+}
+
+h2 {
+    margin: 0 0 0.75rem;
+    font-size: 1.75rem;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+}
+
+p {
+    max-width: 65ch;
+    font-size: 1.1rem;
+    color: var(--color-text-secondary);
+}
+
+main > p {
+    margin: 0 auto 3rem;
+    text-align: center;
+}
+
+section {
+    margin-bottom: 3.5rem;
+}
+
+/* ---------- Figures & images ---------- */
+figure {
+    margin: 3rem auto;
+    max-width: 600px;
+    text-align: center;
+}
+
+figure img {
+    width: 100%;
+    border-radius: var(--radius);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+figcaption {
+    margin-top: 0.75rem;
+    font-size: 14px;
+    color: var(--color-text-secondary);
+}
+
+/* ---------- Contact: address & form ---------- */
+address {
+    font-style: normal;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--color-text-secondary);
+}
+
+form {
+    display: grid;
+    gap: 0.5rem;
+    max-width: 560px;
+}
+
+label {
+    margin-top: 0.75rem;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font: inherit;
+    color: var(--color-text);
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+textarea {
+    resize: vertical;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 4px rgba(0, 113, 227, 0.2);
+}
+
+button {
+    justify-self: start;
+    margin-top: 1rem;
+    padding: 0.7rem 1.6rem;
+    font: inherit;
+    font-weight: 500;
+    color: #ffffff;
+    background: var(--color-accent);
+    border: none;
+    border-radius: 980px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+button:hover {
+    background: var(--color-accent-hover);
+}
+
+button:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(0, 113, 227, 0.3);
+}
+
+/* ---------- Footer (shared) ---------- */
+footer {
+    padding: 1.25rem max(1.5rem, calc((100% - var(--content-width)) / 2));
+    background: var(--color-surface);
+    border-top: 1px solid var(--color-border);
+    text-align: center;
+}
+
+footer p {
+    max-width: none;
+    margin: 0;
+    font-size: 12px;
+    color: var(--color-text-secondary);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    nav ul {
+        gap: 1.25rem;
+    }
+
+    main {
+        padding: 2.5rem 1.25rem 3.5rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+}
